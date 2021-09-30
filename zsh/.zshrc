@@ -6,4 +6,4 @@ plugins=(
     fzf
 )
 
-PROMPT='%({%F{yellow}%}.)evincent@%{7m%}%M %{01;31m%}➜ %{6m%}%~%{00m%} '
+PROMPT=" $ %B%F{40}%n%f%b%F{40}@%f%B%F{40}%m%f%b:%~"
