@@ -134,13 +134,21 @@ function stackoverflow {
 	lynx https://duckduckgo.com/lite\?q\="stackoverflow $1" 
 }
 
-# fzfp scripts (ctrl-\)
+tmux-split-cmd() { 
+	tmux split-window -dv -t $TMUX_PANE "zsh" 
+}
+
+# fzfp scripts
 function fzfp_scripts() {
 		ls ~/scripts | ~/utils/fzfp --layout=reverse | xargs -I{} sh -c "echo {}; bash ~/scripts/{} "
 }
-zle -N fzfp_scripts
-bindkey '^\' fzfp_scripts
 
+# fzfp scripts split (ctrl-\)
+function fzfp_scripts_split() {
+	 tmux split-window "source ~/.zshrc; fzfp_scripts; zsh -i"
+}
+zle -N fzfp_scripts_split
+bindkey '^\' fzfp_scripts_split 
 autoload -U compinit && compinit
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
