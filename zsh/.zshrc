@@ -123,7 +123,7 @@ eval "$(saml2aws --completion-script-zsh)"
 
 emacs () {
 		readonly file=${1:?"file to be opened"}
-		/usr/bin/emacs "$file"
+		/usr/local/bin/emacs "$file"
 }
 
 gotest () { 
@@ -140,7 +140,7 @@ tmux-split-cmd() {
 
 # fzfp scripts
 function fzfp_scripts() {
-		ls ~/scripts | ~/utils/fzfp --layout=reverse | xargs -I{} sh -c "echo {}; bash ~/scripts/{} "
+		gfind ~/scripts -maxdepth 1  -type f  -name "*.sh" -printf "%P\n" | sort | ~/utils/fzfp --layout=reverse | xargs -I{} sh -c "echo {}; bash ~/scripts/{} "
 }
 
 # fzfp scripts split (ctrl-\)
@@ -168,3 +168,4 @@ zle-upify() {
 zle -N zle-upify
 
 bindkey '^U' zle-upify
+export PATH="/usr/local/opt/libpq/bin:$PATH"
