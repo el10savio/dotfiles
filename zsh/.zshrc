@@ -127,7 +127,12 @@ emacs () {
 }
 
 gotest () { 
-	go vet ./... && go test -v -race -failfast --cover ./...; echo $? 
+		readonly run=$1
+		if [ -n "$1" ];
+		  then go vet ./... && go test -v -race -failfast --cover -run ^$run$ ./...; echo $?;
+		  else go vet ./... && go test -v -race -failfast --cover ./...; echo $?;
+		fi
+		# fswatch -or . | xargs -n1 -I{} zsh -c 'source ~/.zshrc; gotest TestCase'
 }
 
 function stackoverflow { 
