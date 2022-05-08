@@ -122,8 +122,11 @@ alias gu="git stash; gru; git pull; git --no-pager log --decorate=short --pretty
 eval "$(saml2aws --completion-script-zsh)"
 
 emacs () {
-		readonly file=${1:?"file to be opened"}
-		/usr/local/bin/emacs "$file"
+		readonly file=$1
+		if [ -n "$1" ];
+		  then /usr/local/bin/emacs "$file";
+		  else /usr/local/bin/emacs;
+		fi
 }
 
 gotest () { 
