@@ -106,6 +106,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export CARGO_NET_GIT_FETCH_WITH_CLI=true
+
 PROMPT="%F{10}$%f%F{214}%~%f: "
 
 alias cat='bat --paging=never'
