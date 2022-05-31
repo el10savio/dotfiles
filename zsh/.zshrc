@@ -117,7 +117,7 @@ alias gs="git status"
 alias ga="git add"
 alias gp="git push"
 alias gc="git commit"
-alias gru="git remote update"
+alias gru="git remote update; git fetch -a"
 alias gd="git diff --name-status"
 alias gu="git stash; gru; git pull; git --no-pager log --decorate=short --pretty=oneline -n1"
 
