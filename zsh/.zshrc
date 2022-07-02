@@ -111,6 +111,7 @@ export CARGO_NET_GIT_FETCH_WITH_CLI=true
 PROMPT="%F{10}$%f%F{214}%~%f: "
 
 alias cat='bat --paging=never'
+alias vscodium='open -a vscodium'
 
 alias got="git"
 alias gs="git status"
