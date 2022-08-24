@@ -122,7 +122,10 @@ alias gru="git remote update; git fetch -a"
 alias gd="git diff --name-status"
 alias gu="git stash; gru; git pull; git --no-pager log --decorate=short --pretty=oneline -n1"
 
-eval "$(saml2aws --completion-script-zsh)"
+#eval "$(saml2aws --completion-script-zsh)"
+
+export JIRA_API_TOKEN="token"
+export JIRA_AUTH_TYPE="bearer"
 
 emacs () {
 		readonly file=$1
@@ -160,7 +163,14 @@ function fzfp_scripts_split() {
 }
 zle -N fzfp_scripts_split
 bindkey '^\' fzfp_scripts_split 
-autoload -U compinit && compinit
+
+# autoload -U compinit && compinit
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+		compinit
+done
+compinit -C
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
