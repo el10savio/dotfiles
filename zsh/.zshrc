@@ -118,7 +118,7 @@ alias gs="git status"
 alias ga="git add"
 alias gp="git push"
 alias gc="git commit"
-alias gru="git remote update; git fetch -a"
+alias gru="git remote update; git fetch -a; git gc"
 alias gd="git diff --name-status"
 alias gu="git stash; gru; git pull; git --no-pager log --decorate=short --pretty=oneline -n1"
 
@@ -190,3 +190,4 @@ zle -N zle-upify
 
 bindkey '^U' zle-upify
 export PATH="/usr/local/opt/libpq/bin:$PATH"
+# source /Users/e.savio/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
