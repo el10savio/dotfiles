@@ -112,6 +112,7 @@ PROMPT="%F{10}$%f%F{214}%~%f: "
 
 alias cat='bat --paging=never'
 alias vscodium='open -a vscodium'
+alias br='broot'
 
 alias got="git"
 alias gs="git status"
@@ -189,5 +190,7 @@ zle-upify() {
 zle -N zle-upify
 
 bindkey '^U' zle-upify
-export PATH="/usr/local/opt/libpq/bin:$PATH"
+export PATH="/usr/local/smlnj/bin:/usr/local/opt/libpq/bin:$PATH"
 # source /Users/e.savio/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+source /Users/e.savio/.config/broot/launcher/bash/br
