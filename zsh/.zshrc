@@ -155,7 +155,7 @@ tmux-split-cmd() {
 
 # fzfp scripts
 function fzfp_scripts() {
-		gfind ~/scripts -maxdepth 1  -type f  -name "*.sh" -printf "%P\n" | sort | ~/utils/fzfp --layout=reverse | xargs -I{} sh -c "echo {}; bash ~/scripts/{} "
+		echo $(gfind ~/scripts -maxdepth 1 -type f  -name "*.sh" -printf "%f\n") $(gfind ~/scripts/vri -maxdepth 2 -type f -name "*.sh" -printf "%f\n") | tr " " "\n" | sort | ~/utils/fzfp --layout=reverse | xargs -I{} sh -c "echo {}; bash ~/scripts/{} "
 }
 
 # fzfp scripts split (ctrl-\)
@@ -194,3 +194,9 @@ export PATH="/usr/local/smlnj/bin:/usr/local/opt/libpq/bin:$PATH"
 # source /Users/e.savio/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source /Users/e.savio/.config/broot/launcher/bash/br
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/e.savio/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/e.savio/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/e.savio/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/e.savio/google-cloud-sdk/completion.zsh.inc'; fi
